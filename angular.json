@@ -1,0 +1,18 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "cli": {
+    "defaultCollection": "@nativescript/schematics",
+    "analytics": "4f891574-468f-44ef-bf3e-83a83ee530d8"
+  },
+  "projects": {
+    "hello-world": {
+      "root": "",
+      "sourceRoot": "src",
+      "projectType": "application",
+      "prefix": "ns"
+    }
+  },
+  "defaultProject": "hello-world"
+}
