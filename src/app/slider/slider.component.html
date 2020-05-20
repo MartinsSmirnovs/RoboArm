@@ -1,0 +1,4 @@
+<StackLayout *ngFor="let slider of slider">
+    <Label [text]="slider.name"></Label>
+    <Slider minValue="0" [maxValue]="slider.maxValue" [value]="slider.maxValue/2" ></Slider>
+</StackLayout>

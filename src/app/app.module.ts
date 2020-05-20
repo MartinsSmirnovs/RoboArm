@@ -17,6 +17,7 @@ import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angul
 import { SideDrawerComponent } from './side-drawer/side-drawer.component';
 import { AboutComponent } from './about/about.component';
 import { AutoComponent } from './auto/auto.component';
+import { SliderComponent } from './slider/slider.component';
 // Uncomment and add to NgModule imports if you need to use the HttpClient wrapper
 // import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 
@@ -38,7 +39,8 @@ import { AutoComponent } from './auto/auto.component';
         ...appComponents,
         SideDrawerComponent,
         AboutComponent,
-        AutoComponent
+        AutoComponent,
+        SliderComponent
     ],
     providers: [Bluetooth],
     schemas: [
