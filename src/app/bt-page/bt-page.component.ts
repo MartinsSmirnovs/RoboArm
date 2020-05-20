@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { Bluetooth } from "nativescript-bluetooth";
 import { ActivatedRoute } from "@angular/router";
+import { BtService } from "../bt.service";
 
 @Component({
     selector: "ns-bt-page",
@@ -11,77 +11,37 @@ import { ActivatedRoute } from "@angular/router";
 export class BtPageComponent implements OnInit {
     btColor = "red"; //shows if bt is connected to device
     btDeviceName = "Not connected";
-    //   tapped = "false";
-    public backParam: string;
-    constructor(private bluetooth: Bluetooth, private route: ActivatedRoute) {
+    lastSentString = "None";
+
+    checkBtColor; //sets interval
+
+    public backParam: string;//for routing
+    constructor(
+        private route: ActivatedRoute,
+        public bt: BtService
+    ) {
         this.route.params.subscribe((params) => {
+            //sets parameter for routing
             this.backParam = params["backParam"];
         });
+
+        // this.btColor = this.bt.btColor; //sets bt color on each visit of page
+
     }
 
     ngOnInit(): void {
-        this.checkBTEnabled();
+        this.scanNConnect();
     }
 
-    checkBTEnabled() {
-        // this.bluetooth.isBluetoothEnabled().then( //checks if bluetooth is enabled and shows green or led color
-        //   enabled => {
-        //       if(enabled){
-        //         this.btColor="green";
-        //         return true;
-        //       }
-        //       else {
-        //         this.btColor="red";
-        //         return false;
-        //       }
-        //     }
-        // );
+    scanNConnect(){
+        this.bt.scanNConnect();
     }
 
-    scanNConnect() {
-        if (this.bluetooth.isBluetoothEnabled()) {
-            this.bluetooth
-                .startScanning({
-                    // serviceUUIDs: "38:01:95:01:0A:71",
-                    seconds: 4,
-                    onDiscovered: function (peripheral) {
-                        console.log(
-                            "Periperhal found with UUID: " +
-                                peripheral.UUID +
-                                " and name: " +
-                                peripheral.name
-                        );
-                    },
-                    skipPermissionCheck: false,
-                })
-                .then(
-                    function () {
-                        console.log("scanning complete");
-                    },
-                    function (err) {
-                        console.log("error while scanning: " + err);
-                    }
-                );
+    disconnectBT(){
+        this.bt.disconnectBT();
+    }
 
-            this.bluetooth.connect({
-                UUID: "3C:71:BF:9D:1D:5E",
-                onConnected: function (peripheral) {
-                    this.btColor = "green";
-                    console.log(
-                        "Periperhal connected with UUID: " + peripheral.UUID
-                    );
-                    this.btDeviceName = peripheral.name;
-                },
-                onDisconnected: function (peripheral) {
-                    this.btColor = "red";
-                    console.log(
-                        "Periperhal disconnected with UUID: " + peripheral.UUID
-                    );
-                    this.btDeviceName = "Not connected";
-                },
-            });
-        } else {
-            this.btDeviceName = "Bluetooth is not enabled!";
-        }
+    sendBTData(dataToSend){
+        this.bt.sendBTData(dataToSend);
     }
 }

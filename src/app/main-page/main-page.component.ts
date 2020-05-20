@@ -9,9 +9,10 @@ import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 })
 
 export class MainPageComponent implements OnInit {
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
+
   }
 
   openDrawer(){
