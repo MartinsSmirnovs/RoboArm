@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
+import { sliders } from "../sliders";
 
 @Component({
   selector: 'ns-main-page',
@@ -10,7 +11,7 @@ import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 
 export class MainPageComponent implements OnInit {
   constructor() {}
-
+  slider = sliders;
   ngOnInit(): void {
 
   }

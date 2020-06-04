@@ -5,7 +5,6 @@
 */
 
 #include <BLEDevice.h>
-#include <BLEUtils.h>
 #include <BLEServer.h>
 
 // See the following for generating UUIDs:
@@ -16,8 +15,9 @@
 
 String serviceUUID = "4fafc201-1fb5-459e-8fcc-c5c9c331914b";
 String charUUID = "beb5483e-36e1-4688-b7f5-ea07361b26a8";
-String bdAdd = "3C:71:BF:9D:1D:5E";
+//String bdAdd = "3C:71:BF:9D:1D:5E";
 
+String bdAdd = "FC:F5:C4:6E:B4:42";//my ESP
 BLECharacteristic *pCharacteristic;
 
 void setup() {

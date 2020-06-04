@@ -1,4 +1,5 @@
-<StackLayout *ngFor="let slider of slider">
-    <Label [text]="slider.name"></Label>
-    <Slider minValue="0" [maxValue]="slider.maxValue" [value]="slider.maxValue/2" ></Slider>
+<StackLayout>
+    <Label [text]="slider[compId].name + ': ' + slider[compId].value"></Label>
+    <Slider [minValue]="slider[compId].minValue" [maxValue]="slider[compId].maxValue"
+        [value]="slider[compId].value" (valueChange)="this.sliderInput($event)"></Slider>
 </StackLayout>

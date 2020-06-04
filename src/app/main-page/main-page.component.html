@@ -1,4 +1,6 @@
 <ns-side-drawer>
-    <ns-slider></ns-slider>
+    <StackLayout *ngFor="let slid of slider; let i = index">
+        <ns-slider [compId]="i"></ns-slider>
+    </StackLayout>
 </ns-side-drawer>
 

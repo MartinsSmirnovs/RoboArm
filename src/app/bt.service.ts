@@ -20,7 +20,7 @@ export class BtService {
 disconnectBT() { //disconnects from bluetooth
     this.bluetooth
         .disconnect({
-            UUID: "3C:71:BF:9D:1D:5E",
+            UUID: "FC:F5:C4:6E:B4:42", //FC:F5:C4:6E:B4:42(my ESP),  3C:71:BF:9D:1D:5E
         })
         .then(
             function () {
@@ -57,7 +57,7 @@ scanNConnect() {//scans bluetooth and connects to bluetooth module
             );
 
         this.bluetooth.connect({
-            UUID: "3C:71:BF:9D:1D:5E",
+            UUID: "FC:F5:C4:6E:B4:42",
             onConnected: function (peripheral) {
                 this.bluetooth.stopScanning(); //stops scanning if connected to device
                 console.log(
@@ -94,7 +94,7 @@ sendBTData(dataToSend) { //sends bluetooth data
     if (this.connected) {
         this.bluetooth
             .write({
-                peripheralUUID: "3C:71:BF:9D:1D:5E", //peripheral UUID
+                peripheralUUID: "FC:F5:C4:6E:B4:42", //peripheral UUID
                 serviceUUID: "4fafc201-1fb5-459e-8fcc-c5c9c331914b", //service UUID inside characteristics
                 characteristicUUID: "beb5483e-36e1-4688-b7f5-ea07361b26a8", //UUID inside characteristics
                 value: dataToSend, // can be a string

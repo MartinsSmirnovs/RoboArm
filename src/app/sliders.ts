@@ -1,38 +1,50 @@
 export const sliders = [
     {
         sliderType: "line",
-        maxValue: 360,
+        minValue: 65,
+        maxValue: 180,
         alignment: "horizontal",
-        name: "Shoulder"
+        name: "Grab",
+        value: 135,
     },
     {
         sliderType: "line",
-        maxValue: 360,
+        minValue: 90,
+        maxValue: 180,
         alignment: "horizontal",
-        name: "Elbow"
+        name: "Elbow",
+        value: 135,
+    },
+    {
+        sliderType: "circle",
+        minValue: 0,
+        maxValue: 180,
+        alignment: "horizontal",
+        name: "Rotate wrist",
+        value: 90,
     },
     {
         sliderType: "line",
-        maxValue: 360,
-        alignment: "horizontal",
-        name: "Grab"
-    },
-    {
-        sliderType: "line",
-        maxValue: 360,
+        minValue: 0,
+        maxValue: 180,
         alignment: "vertrical",
-        name: "Vertical wrist"
+        name: "Vertical wrist",
+        value: 90,
+    },
+    {
+        sliderType: "line",
+        minValue: 0,
+        maxValue: 360,
+        alignment: "horizontal",
+        name: "Bicep",
+        value: 0,
     },
     {
         sliderType: "circle",
-        maxValue: 360,
+        minValue: 0,
+        maxValue: 999,
         alignment: "horizontal",
-        name: "Rotate wrist"
-    },
-    {
-        sliderType: "circle",
-        maxValue: 360,
-        alignment: "horizontal",
-        name: "Rotate arm"
+        name: "Shoulder",
+        value: 0,
     }
 ];
