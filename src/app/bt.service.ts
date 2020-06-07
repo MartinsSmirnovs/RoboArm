@@ -12,6 +12,22 @@ export class BtService {
   btDeviceName = "Not connected";
   lastSentString = "None";
 
+  //Common uuids:
+  //FC:F5:C4:6E:B4:42(my ESP)
+  //3C:71:BF:9D:1D:5E(Austris ESP)
+  //18:62:E4:3F:F2:19 (Oskars HM10)
+  uuid = "18:62:E4:3F:F2:19";
+
+  //Common service uuids:
+  //4fafc201-1fb5-459e-8fcc-c5c9c331914b(ESP)
+  //0000ffe0-0000-1000-8000-00805f9b34fb(Oskars HM10)
+  serviceUuid = "0000ffe0-0000-1000-8000-00805f9b34fb";
+
+  //Common characteristics uuids:
+  //beb5483e-36e1-4688-b7f5-ea07361b26a8(ESP)
+  //0000ffe1-0000-1000-8000-00805f9b34fb(Oskars HM10)
+  charUuid = "0000ffe1-0000-1000-8000-00805f9b34fb"
+
   showBTEnabled() { //shows color if device is connected
     if (this.connected) this.btColor = "green";
     else this.btColor = "red";
@@ -20,7 +36,7 @@ export class BtService {
 disconnectBT() { //disconnects from bluetooth
     this.bluetooth
         .disconnect({
-            UUID: "FC:F5:C4:6E:B4:42", //FC:F5:C4:6E:B4:42(my ESP),  3C:71:BF:9D:1D:5E
+            UUID: this.uuid,
         })
         .then(
             function () {
@@ -57,7 +73,7 @@ scanNConnect() {//scans bluetooth and connects to bluetooth module
             );
 
         this.bluetooth.connect({
-            UUID: "FC:F5:C4:6E:B4:42",
+            UUID: this.uuid,
             onConnected: function (peripheral) {
                 this.bluetooth.stopScanning(); //stops scanning if connected to device
                 console.log(
@@ -94,9 +110,9 @@ sendBTData(dataToSend) { //sends bluetooth data
     if (this.connected) {
         this.bluetooth
             .write({
-                peripheralUUID: "FC:F5:C4:6E:B4:42", //peripheral UUID
-                serviceUUID: "4fafc201-1fb5-459e-8fcc-c5c9c331914b", //service UUID inside characteristics
-                characteristicUUID: "beb5483e-36e1-4688-b7f5-ea07361b26a8", //UUID inside characteristics
+                peripheralUUID: this.uuid, //peripheral UUID
+                serviceUUID: this.serviceUuid, //service UUID inside characteristics
+                characteristicUUID: this.charUuid, //UUID inside characteristics
                 value: dataToSend, // can be a string
             })
             .then(

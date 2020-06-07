@@ -27,7 +27,7 @@ export const sliders = [
         sliderType: "line",
         minValue: 0,
         maxValue: 180,
-        alignment: "vertrical",
+        alignment: "vertical",
         name: "Vertical wrist",
         value: 90,
     },
@@ -42,8 +42,8 @@ export const sliders = [
     {
         sliderType: "circle",
         minValue: 0,
-        maxValue: 999,
-        alignment: "horizontal",
+        maxValue: 10,
+        alignment: "vertical",
         name: "Shoulder",
         value: 0,
     }
