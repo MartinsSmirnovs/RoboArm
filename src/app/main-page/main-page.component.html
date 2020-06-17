@@ -1,9 +1,10 @@
 <ns-side-drawer>
     <StackLayout class="container" >
-        <StackLayout *ngFor="let slid of slider; let i = index" background="red"  class="sliderHolder">
+        <StackLayout *ngFor="let slid of slider; let i = index" class="sliderHolder">
             <ns-slider  [compId]="i"></ns-slider>
         </StackLayout>
     </StackLayout>
+    <Button (tap)="startAuto();" [text]="this.autoText"></Button>
 </ns-side-drawer>
 <!--Try to ngfor 2 components at once, make double for to stretch all of this-->
 <!--*ngIf="(slid.alignment == 'vertical')"-->

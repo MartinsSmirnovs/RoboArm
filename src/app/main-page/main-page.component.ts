@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
+import { BtService } from "../bt.service";
 import { sliders } from "../sliders";
 
 @Component({
@@ -10,8 +11,12 @@ import { sliders } from "../sliders";
 })
 
 export class MainPageComponent implements OnInit {
-  constructor() {}
+  constructor(private bt: BtService) {}
   slider = sliders;
+
+  autoText = "Auto";
+  autoState = false;
+
   ngOnInit(): void {
 
   }
@@ -21,5 +26,15 @@ export class MainPageComponent implements OnInit {
     sideDrawer.showDrawer();
   }
 
+  startAuto(){
+    this.bt.sendBTData("<7000>");
+
+    this.autoState = !this.autoState;
+
+    if(this.autoState)
+        this.autoText = "Manual";
+    else
+        this.autoText = "Auto";
+  }
 
 }
