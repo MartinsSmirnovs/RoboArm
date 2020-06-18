@@ -10,3 +10,15 @@ Slider{
     /* background: pink; */
     /* width: 300; */
 }
+
+.lilChange{
+    height: 40;
+    width: 60;
+    margin:0;
+    margin-right: 10;
+}
+
+.motorName{
+    margin-left: 10;
+    margin-top: 5;
+}

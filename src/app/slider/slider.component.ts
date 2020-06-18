@@ -27,19 +27,41 @@ export class SliderComponent implements OnInit {
     sliderInput(args) {
         //reads slider value from input
         this.slider[this.compId].value = args.value;
+        this.sendOut();
+    }
+
+    btBuild(value) {
+        //builds bt send out data
+        if (value >= 100) return value.toString();
+        else if (value >= 10 && value < 100) return "0" + value.toString();
+        else return "00" + value.toString();
+    }
+
+    oneUp() {
+        this.slider[this.compId].value += this.addValue(1, false);
+        this.sendOut();
+    }
+
+    oneDown() {
+        this.slider[this.compId].value -= this.addValue(1, true);
+        this.sendOut();
+    }
+
+    sendOut() {
         this.bt.sendBTData(
-            "<"+ (this.compId + 1) +
+            "<" +
+                (this.compId + 1) +
                 this.btBuild(this.slider[this.compId].value) +
                 ">"
         );
     }
 
-    btBuild(value){ //builds bt send out data
-        if(value>=100)
-            return value.toString();
-        else if (value >= 10 && value < 100)
-            return "0" + value.toString();
-        else
-            return "00" + value.toString();
+    addValue(add, subtr) {
+        if (
+            this.slider[this.compId].value + add <= this.slider[this.compId].maxValue && !subtr ||
+            this.slider[this.compId].value - add >= this.slider[this.compId].minValue && subtr
+        )
+            return add;
+        return 0;
     }
 }
