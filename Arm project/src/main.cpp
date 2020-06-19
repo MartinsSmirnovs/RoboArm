@@ -11,48 +11,60 @@ Motor bicep(571, 8, 7, 1);
 
 DcMotor shoulder(5, 6, 50);
 
-bool autoMode = false;        //enables or disables auto mode
-unsigned long oldTimeInt = 0; //follows time
-bool grabState = false;       //finger servo grab toggle
+bool autoMode = false;
+unsigned long oldTimeInt = 0;
+bool grabState = false;
 
 int genDelay = 5000;
 int smallDelay = 1000;
 
-byte part = 0;   //delay between big movements
-byte inPart = 0; //delay between small movements
+byte maxStep = 6;
+
+Smooth smooth;
+
+byte part = 0;
+byte inPart = 1;
+
 int values[3][4] = {
-    //arm states values
-    {209, 122, 90, 139}, //down take
-    {147, 170, 90, 162}, //up
-    {238, 118, 90, 139}  //up put
-};
+    {238, 118, 90, 139},
+    {147, 170, 90, 162},
+    {209, 122, 90, 139}};
+
 
 void setup()
 {
   Serial.begin(9600);
-  fingerServo.attach(9); //start servos
+  fingerServo.attach(9);
   elbowServo.attach(10);
   wristServo.attach(11);
   vertServo.attach(12);
 
-  fingerServo.write(110); //give servos starting position
+  fingerServo.write(110);
   elbowServo.write(135);
   wristServo.write(90);
   vertServo.write(90);
 
-  bicep.setup(); //setup other motors
+  bicep.setup();
   shoulder.setup();
+
+  smooth.oldTimeInt = 0;
+  smooth.oldPosit = 0;
+  smooth.newPosit = 0;
+  smooth.motPosition = 0; 
+  smooth.difference = 1;
+  smooth.motCount = 1;
+  smooth.delayTime = 25;
+  smooth.maxStep = maxStep;
 }
 
 void loop()
 {
-  bt.loop(); //main loops for different objects
+  bt.loop();
   bicep.loop();
   shoulder.loop();
+  checkBt();
 
-  checkBt(); //checks for incoming bluetooth data and proceeds it
-
-  if (autoMode) //if user have chose automode then loop it
+  if (autoMode)
   {
     doAuto();
   }
@@ -62,36 +74,38 @@ void checkBt()
 {
   if (bt.getNewData())
   {
-    if (!autoMode && bt.getType() >= 1 && bt.getType() <= 6) //if there is automode then user can't manual set motor values
+    switch (bt.getType())
     {
-      switch (bt.getType())
-      {
-      case 1:
+    case 1:
+      if (!autoMode)
         fingerServo.write(bt.getValue());
-        break;
-      case 2:
+      break;
+    case 2:
+      if (!autoMode)
         elbowServo.write(bt.getValue());
-        break;
-      case 3:
+      break;
+    case 3:
+      if (!autoMode)
         wristServo.write(bt.getValue());
-        break;
-      case 4:
+      break;
+    case 4:
+      if (!autoMode)
         vertServo.write(bt.getValue());
-        break;
-      case 5:
+      break;
+    case 5:
+      if (!autoMode)
         bicep.setPosition(bt.getValue());
-        break;
-      case 6:
+      break;
+    case 6:
+      if (!autoMode)
         shoulder.setPosition(bt.getValue());
-        break;
-      default:
-        break;
-      }
-    }
-    else if (bt.getType() == 7) //if datatype is 7 then toggle auto mode
-    {
-      autoMode = !autoMode; //toggles auto mode
-      grabState = false;    //resets grab to default open state
+      break;
+    case 7:
+      autoMode = !autoMode;
+      grabState = false;
+      break;
+    default:
+      break;
     }
   }
 }

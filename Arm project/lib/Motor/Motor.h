@@ -7,6 +7,7 @@
                 void setup();
                 void loop();
                 void setPosition(int newPosition);
+                int getPosition();
             private:
                 int _currentPosition;
                 byte _stepPin;
@@ -14,6 +15,7 @@
                 int _step;
                 int _plannedPosition;
                 int _stepsPerRevolution;
+                int _lastPosition;
         };
 #endif 
 

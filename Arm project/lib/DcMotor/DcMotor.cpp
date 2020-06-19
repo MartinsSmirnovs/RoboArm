@@ -20,7 +20,6 @@ void DcMotor::loop()
 {
     if (abs(_currentPosition - _plannedPosition) > 0)
     {
-
         if (millis() - _oldTimeInt >= _rotDelay)
         {
             _oldTimeInt = millis();
@@ -30,7 +29,7 @@ void DcMotor::loop()
                 digitalWrite(_plusPin, LOW);
                 digitalWrite(_minusPin, HIGH);
             }
-            else
+            else if(_plannedPosition - _currentPosition > 0)
             {
                 _currentPosition ++;
                 digitalWrite(_plusPin, HIGH);

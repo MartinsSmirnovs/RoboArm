@@ -8,6 +8,7 @@ Motor::Motor(int stepsPerRevolution, byte stepPin, byte dirPin, int step)
     _step = step;
     _currentPosition = 0;
     _plannedPosition = 0;
+    _lastPosition = 0;
 }
 
 void Motor::setup()
@@ -49,5 +50,10 @@ void Motor::loop()
 
 void Motor::setPosition(int newPosition)
 {
+    _lastPosition = map(_plannedPosition, 0, _stepsPerRevolution, 0, 360);
     _plannedPosition = map(newPosition, 0, 360, 0, _stepsPerRevolution);
+}
+
+int Motor::getPosition(){
+    return _lastPosition;
 }
