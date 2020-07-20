@@ -15,10 +15,10 @@ Hardware and mobile app code for Robotic Arm that is controlled by Arduino Nano.
 
 # Libraries used
 ## Hardware
-- ```BtClassic.h``` custom made library for receiving and processing incoming bluetooth data, described here
+- ```BtClassic.h``` custom made library for receiving and processing incoming bluetooth data, described [here](https://github.com/Onii-Chaan/BtClassic.h)
 - ```Servo.h``` standard Arduino Servo motor library
-- ```DcMotor.h``` custom made library for driving DC motors using l293d motor driver IC, described here
-- ```Motor.h``` custom made library for driving stepper motors using A4988 driver, descibed here
+- ```DcMotor.h``` custom made library for driving DC motors using l293d motor driver IC
+- ```Motor.h``` custom made library for driving stepper motors using A4988 driver
 - ```Arduino.h```
 
 ## App
