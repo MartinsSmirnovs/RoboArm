@@ -27,7 +27,7 @@ The app was written in nativescript using Angular framework, following modules w
 - ```NativeScriptFormsModule```
 - ```NativeScriptUISideDrawerModule```
 
-App build is located in ```App``` folder and hardware code is located in ```Hardware``` folder
+App build is located in ```App``` folder and hardware code is located in ```Hardware``` folder. In ```Hardware``` folder there is also ```epicSin``` folder. It contains arduino arm code that makes automatic movements of arm smoother by using sin function.
 
 # Setup
 ## App setup
