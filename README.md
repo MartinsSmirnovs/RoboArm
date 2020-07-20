@@ -5,8 +5,8 @@
   - [Hardware](https://github.com/Onii-Chaan/RoboArm/tree/master#hardware)
   - [App](https://github.com/Onii-Chaan/RoboArm/tree/master#app)
 - [Setup](https://github.com/Onii-Chaan/RoboArm/tree/master#setup)
-    - [Hardware setup](https://github.com/Onii-Chaan/RoboArm/tree/master#hardwaresetup)
-    - [App setup](https://github.com/Onii-Chaan/RoboArm/tree/master#appsetup)
+    - [Hardware setup](https://github.com/Onii-Chaan/RoboArm/tree/master#hardware-setup)
+    - [App setup](https://github.com/Onii-Chaan/RoboArm/tree/master#app-setup)
 - [Circuit & result](https://github.com/Onii-Chaan/RoboArm/tree/master#circuit--result)
 
 # Usage
