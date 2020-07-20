@@ -27,6 +27,7 @@ The app was written in nativescript using Angular framework, following modules w
 - ```NativeScriptFormsModule```
 - ```NativeScriptUISideDrawerModule```
 
+App build is located in ```App``` folder and hardware code is located in ```Hardware``` folder
 
 # Setup
 ## App setup
