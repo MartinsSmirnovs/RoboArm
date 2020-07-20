@@ -29,10 +29,10 @@ The app was written in nativescript using Angular framework, following modules w
 
 
 # Setup
-## App
+## App setup
 This repository contains whole build for app, because some recent releases were buggy and did not run the code properly. Other than that, you have to install all the app modules needed for the app. After that, app should be good to go. 
 
-## Hardware
+## Hardware setup
 You should upload code to arduino using PlatformIO. This repository contains whole build. 
 
 
