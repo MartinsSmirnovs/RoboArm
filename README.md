@@ -1,13 +1,13 @@
 # RoboArm
 # Table of contents
-- [Usage](https://github.com/Onii-Chaan/Bottlender-prototype#usage)
-- [Libraries used](https://github.com/Onii-Chaan/Bottlender-prototype#libraries-used)
-  - [Hardware](https://github.com/Onii-Chaan/Bottlender-prototype#hardware)
-  - [App](https://github.com/Onii-Chaan/Bottlender-prototype#app)
-- [Setup](https://github.com/Onii-Chaan/Bottlender-prototype#setup)
-    - [Hardware setup](https://github.com/Onii-Chaan/Bottlender-prototype#hardwaresetup)
-    - [App setup](https://github.com/Onii-Chaan/Bottlender-prototype#appsetup)
-- [Circuit & result](https://github.com/Onii-Chaan/Bottlender-prototype#circuit--result)
+- [Usage](https://github.com/Onii-Chaan/RoboArm/tree/master#usage)
+- [Libraries used](https://github.com/Onii-Chaan/RoboArm/tree/master#libraries-used)
+  - [Hardware](https://github.com/Onii-Chaan/RoboArm/tree/master#hardware)
+  - [App](https://github.com/Onii-Chaan/RoboArm/tree/master#app)
+- [Setup](https://github.com/Onii-Chaan/RoboArm/tree/master#setup)
+    - [Hardware setup](https://github.com/Onii-Chaan/RoboArm/tree/master#hardwaresetup)
+    - [App setup](https://github.com/Onii-Chaan/RoboArm/tree/master#appsetup)
+- [Circuit & result](https://github.com/Onii-Chaan/RoboArm/tree/master#circuit--result)
 
 # Usage
 
